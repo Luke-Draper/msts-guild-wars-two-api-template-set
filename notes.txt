@@ -1,0 +1,51 @@
+I need a node interface that every node implements
+I need a parent interface and child interface seperate from that
+I need a list and element interface seperate from that
+I need a data interface for all nodes that return data (i.e. not dummy endpoints)
+
+each node interface needs
+	Variables:
+		pathBaseName: string;
+		isAuthenticated: boolean;
+		isLocalized: boolean;
+		isDisabled: boolean;
+	Methods:
+		getFullPath(): string; -=- if root then return this.pathBaseName else
+				return (this.parent.getFullPath()+"/"+this.pathBaseName)
+		setupData(recursive: boolean = false): Promise<this>;
+	Tests:
+		-=- Must be isolated with dummy data 
+		can construct
+		can setup data
+		can get full path
+
+
+each parent interface needs
+	Variables:
+		childName: childType;
+		children: Array<child interface>;
+	Methods:
+		setupData -=- implements recursion into children
+
+each child interface needs
+	Variables:
+		parent: parentType;
+	Methods:
+
+each list interface needs
+	Variables:
+		elements: Array<element interface>;
+	Methods:
+		getElementByID():element interface;
+		setupData -=- implements recursion into children using pagination or get ids=all
+
+each element interface needs
+	Variables:
+		parent: parentType;
+	Methods:
+
+each data interface needs
+	Variables:
+		data: dataType;
+	Methods:
+		setupData -=- creates the dataType object from raw and sets it to data

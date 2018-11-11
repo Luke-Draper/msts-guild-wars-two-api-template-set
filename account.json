@@ -1,0 +1,439 @@
+{
+	"templateDirectory": "./templates",
+	"tasks": [
+		{
+			"targets": [
+				{
+					"templates": ["nodeBase"],
+					"destination": "./root/account/account.ts"
+				},
+				{
+					"templates": ["nodeTest"],
+					"destination": "./root/account/account.test.ts"
+				}
+			],
+			"variables": {
+				"apiNodeName": "account",
+				"docs": "This resource returns information about player accounts.",
+				"isAuthenticated": true,
+				"isLocalized": false,
+				"isDisabled": false,
+				"isChild": true,
+				"parentNode": "root",
+				"isParent": true,
+				"childNodes": [
+					"achievements",
+					"bank",
+					"dungeons",
+					"dyes",
+					"finishers",
+					"gliders",
+					"home",
+					"inventory",
+					"mailcarriers",
+					"masteries",
+					"mastery",
+					"materials",
+					"minis",
+					"outfits",
+					"pvp",
+					"raids",
+					"recipes",
+					"skins",
+					"titles",
+					"wallet"
+				],
+				"isList": false,
+				"isElement": false,
+				"hasData": true,
+				"apiDataVariables": [
+					{
+						"name": "id",
+						"type": "string",
+						"isOptional": false,
+						"docs": "The unique persistent account GUID."
+					},
+					{
+						"name": "age",
+						"type": "number",
+						"isOptional": false,
+						"docs": "The age of the account in seconds."
+					},
+					{
+						"name": "name",
+						"type": "string",
+						"isOptional": false,
+						"docs": "The unique account name with numerical suffix. It is possible that the name change. Do not rely on the name, use id instead."
+					},
+					{
+						"name": "world",
+						"type": "number",
+						"isOptional": false,
+						"docs": "The id of the home world the account is assigned to. Can be resolved against /v2/worlds."
+					},
+					{
+						"name": "guilds",
+						"type": "Array<string>",
+						"isOptional": false,
+						"docs": "A list of guild ids assigned to the given account."
+					},
+					{
+						"name": "guild_leader",
+						"type": "Array<string>",
+						"isOptional": false,
+						"docs": "A list of guild ids the account is leader of. overlaps with guilds"
+					},
+					{
+						"name": "created",
+						"type": "string",
+						"isOptional": false,
+						"docs": "An ISO-8601 standard timestamp of when the account was created."
+					},
+					{
+						"name": "access",
+						"type": "Array<string>",
+						"isOptional": false,
+						"docs": "A list of what content this account has access to. Possible values: None-should probably never happen, PlayForFree-has not yet purchased the game, GuildWars2-has purchased the base game, HeartOfThorns-has purchased Heart of Thorns, PathOfFire-has purchased Path of Fire",
+						"enum": [
+							"None",
+							"PlayForFree",
+							"GuildWars2",
+							"HeartOfThorns",
+							"PathOfFire"
+						]
+					},
+					{
+						"name": "commander",
+						"type": "BOOLEAN",
+						"isOptional": false,
+						"docs": "True if the player has bought a commander tag."
+					},
+					{
+						"name": "fractal_level",
+						"type": "number",
+						"isOptional": false,
+						"docs": "The account's personal fractal reward level. Requires the additional progression scope."
+					},
+					{
+						"name": "daily_ap",
+						"type": "number",
+						"isOptional": false,
+						"docs": "The daily AP the account has. Requires the additional progression scope."
+					},
+					{
+						"name": "monthly_ap",
+						"type": "number",
+						"isOptional": false,
+						"docs": "The monthly AP the account has. Requires the additional progression scope."
+					},
+					{
+						"name": "wvw_rank",
+						"type": "number",
+						"isOptional": false,
+						"docs": "The account's personal wvw rank. Requires the additional progression scope."
+					}
+				]
+			}
+		},
+		{
+			"targets": [
+				{
+					"templates": ["nodeBase"],
+					"destination": "./root/account/account.ts"
+				},
+				{
+					"templates": ["nodeTest"],
+					"destination": "./root/account/account.test.ts"
+				}
+			],
+			"variables": {
+				"apiNodeName": "achievements",
+				"docs": "This resource returns an account's progress towards all their achievements.",
+				"isAuthenticated": true,
+				"isLocalized": false,
+				"isDisabled": false,
+				"isChild": true,
+				"parentNode": "account",
+				"isParent": false,
+				"isList": false,
+				"isElement": false,
+				"hasData": true,
+				"apiDataVariables": [
+					{
+						"name": "achievements",
+						"type": "Array<achievement>",
+						"isOptional": false,
+						"docs": "The full list of current achievement objects",
+						"subType": {
+							"name": "achievement",
+							"apiDataVariables": [
+								{
+									"name": "id",
+									"type": "number",
+									"isOptional": false,
+									"docs": "The achievement id."
+								},
+								{
+									"name": "bits",
+									"type": "Array<number>",
+									"isOptional": true,
+									"docs": "This attribute contains an array of numbers, giving more specific information on the progress for the achievement. The meaning of each value varies with each achievement."
+								},
+								{
+									"name": "current",
+									"type": "number",
+									"isOptional": true,
+									"docs": "The player's current progress towards the achievement."
+								},
+								{
+									"name": "max",
+									"type": "number",
+									"isOptional": true,
+									"docs": "The amount needed to complete the achievement."
+								},
+								{
+									"name": "done",
+									"type": "boolean",
+									"isOptional": false,
+									"docs": "Whether or not the achievement is done."
+								},
+								{
+									"name": "repeated",
+									"type": "number",
+									"isOptional": true,
+									"docs": "The number of times the achievement has been completed if the achievement is repeatable."
+								},
+								{
+									"name": "unlocked",
+									"type": "boolean",
+									"isOptional": true,
+									"docs": "Whether or not the achievement is unlocked. Note that if this property does not exist, the achievement is unlocked as well."
+								}
+							]
+						}
+					}
+				]
+			}
+		},
+		{
+			"targets": [
+				{
+					"templates": ["nodeBase"],
+					"destination": "./root/account/account.ts"
+				},
+				{
+					"templates": ["nodeTest"],
+					"destination": "./root/account/account.test.ts"
+				}
+			],
+			"variables": {
+				"apiNodeName": "bank",
+				"docs": "This resource returns the items stored in a player's vault (not including material storage).",
+				"isAuthenticated": true,
+				"isLocalized": false,
+				"isDisabled": false,
+				"isChild": true,
+				"parentNode": "account",
+				"isParent": false,
+				"isList": false,
+				"isElement": false,
+				"hasData": true,
+				"apiDataVariables": [
+					{
+						"name": "items",
+						"type": "Array<item>",
+						"isOptional": false,
+						"docs": "The endpoint returns an array of objects, each representing an item slot in the vault. If a slot is empty, it will return null. The amount of slots/bank tabs is implied by the length of the array.",
+						"subType": {
+							"name": "item",
+							"apiDataVariables": [
+								{
+									"name": "id",
+									"type": "number",
+									"isOptional": false,
+									"docs": "The item id."
+								},
+								{
+									"name": "count",
+									"type": "number",
+									"isOptional": false,
+									"docs": "The amount of items in the item stack."
+								},
+								{
+									"name": "charges",
+									"type": "number",
+									"isOptional": true,
+									"docs": "The amount of charges remaining on the item."
+								},
+								{
+									"name": "skin",
+									"type": "number",
+									"isOptional": true,
+									"docs": "The skin applied to the item, if it is different from its original. Can be resolved against /v2/skins."
+								},
+								{
+									"name": "upgrades",
+									"type": "Array<number>",
+									"isOptional": true,
+									"docs": "An array of item IDs for each rune or signet applied to the item."
+								},
+								{
+									"name": "infusions",
+									"type": "Array<number>",
+									"isOptional": true,
+									"docs": "An array of item IDs for each infusion applied to the item."
+								},
+								{
+									"name": "binding",
+									"type": "string",
+									"isOptional": true,
+									"docs": "The current binding of the item. Either Account or Character if present."
+								},
+								{
+									"name": "bound_to",
+									"type": "string",
+									"isOptional": true,
+									"docs": "If binding is Character, this field tells which character it is bound to."
+								}
+							]
+						}
+					}
+				]
+			}
+		},
+		{
+			"targets": [
+				{
+					"templates": ["nodeBase"],
+					"destination": "./root/account/account.ts"
+				},
+				{
+					"templates": ["nodeTest"],
+					"destination": "./root/account/account.test.ts"
+				}
+			],
+			"variables": {
+				"apiNodeName": "account",
+				"docs": "This resource returns an account's progress towards all their achievements.",
+				"isAuthenticated": true,
+				"isLocalized": false,
+				"isDisabled": false,
+				"isChild": true,
+				"parentNode": "root",
+				"isParent": true,
+				"childNodes": [
+					"achievements",
+					"bank",
+					"dungeons",
+					"dyes",
+					"finishers",
+					"gliders",
+					"home",
+					"inventory",
+					"mailcarriers",
+					"masteries",
+					"mastery",
+					"materials",
+					"minis",
+					"outfits",
+					"pvp",
+					"raids",
+					"recipes",
+					"skins",
+					"titles",
+					"wallet"
+				],
+				"isList": false,
+				"isElement": false,
+				"hasData": true,
+				"apiDataVariables": [
+					{
+						"name": "id",
+						"type": "string",
+						"isOptional": false,
+						"docs": "The unique persistent account GUID."
+					},
+					{
+						"name": "age",
+						"type": "number",
+						"isOptional": false,
+						"docs": "The age of the account in seconds."
+					},
+					{
+						"name": "name",
+						"type": "string",
+						"isOptional": false,
+						"docs": "The unique account name with numerical suffix. It is possible that the name change. Do not rely on the name, use id instead."
+					},
+					{
+						"name": "world",
+						"type": "number",
+						"isOptional": false,
+						"docs": "The id of the home world the account is assigned to. Can be resolved against /v2/worlds."
+					},
+					{
+						"name": "guilds",
+						"type": "Array<string>",
+						"isOptional": false,
+						"docs": "A list of guild ids assigned to the given account."
+					},
+					{
+						"name": "guild_leader",
+						"type": "Array<string>",
+						"isOptional": false,
+						"docs": "A list of guild ids the account is leader of. overlaps with guilds"
+					},
+					{
+						"name": "created",
+						"type": "string",
+						"isOptional": false,
+						"docs": "An ISO-8601 standard timestamp of when the account was created."
+					},
+					{
+						"name": "access",
+						"type": "Array<string>",
+						"isOptional": false,
+						"docs": "A list of what content this account has access to. Possible values: None-should probably never happen, PlayForFree-has not yet purchased the game, GuildWars2-has purchased the base game, HeartOfThorns-has purchased Heart of Thorns, PathOfFire-has purchased Path of Fire",
+						"enum": [
+							"None",
+							"PlayForFree",
+							"GuildWars2",
+							"HeartOfThorns",
+							"PathOfFire"
+						]
+					},
+					{
+						"name": "commander",
+						"type": "BOOLEAN",
+						"isOptional": false,
+						"docs": "True if the player has bought a commander tag."
+					},
+					{
+						"name": "fractal_level",
+						"type": "number",
+						"isOptional": false,
+						"docs": "The account's personal fractal reward level. Requires the additional progression scope."
+					},
+					{
+						"name": "daily_ap",
+						"type": "number",
+						"isOptional": false,
+						"docs": "The daily AP the account has. Requires the additional progression scope."
+					},
+					{
+						"name": "monthly_ap",
+						"type": "number",
+						"isOptional": false,
+						"docs": "The monthly AP the account has. Requires the additional progression scope."
+					},
+					{
+						"name": "wvw_rank",
+						"type": "number",
+						"isOptional": false,
+						"docs": "The account's personal wvw rank. Requires the additional progression scope."
+					}
+				]
+			}
+		}
+	]
+}
