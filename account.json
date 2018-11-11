@@ -820,132 +820,367 @@
 			"targets": [
 				{
 					"templates": ["nodeBase"],
-					"destination": "./root/account/account.ts"
+					"destination": "./root/account/materials/materials.ts"
 				},
 				{
 					"templates": ["nodeTest"],
-					"destination": "./root/account/account.test.ts"
+					"destination": "./root/account/materials/materials.test.ts"
 				}
 			],
 			"variables": {
-				"apiNodeName": "account",
-				"docs": "This resource returns an account's progress towards all their achievements.",
+				"apiNodeName": "materials",
+				"docs": "This resource returns the materials stored in a player's vault.",
 				"isAuthenticated": true,
 				"isLocalized": false,
 				"isDisabled": false,
 				"isChild": true,
-				"parentNode": "root",
-				"isParent": true,
-				"childNodes": [
-					"achievements",
-					"bank",
-					"dungeons",
-					"dyes",
-					"finishers",
-					"gliders",
-					"home",
-					"inventory",
-					"mailcarriers",
-					"masteries",
-					"mastery",
-					"materials",
-					"minis",
-					"outfits",
-					"pvp",
-					"raids",
-					"recipes",
-					"skins",
-					"titles",
-					"wallet"
-				],
+				"parentNode": "account",
+				"isParent": false,
 				"isList": false,
 				"isElement": false,
 				"hasData": true,
 				"apiDataVariables": [
 					{
-						"name": "id",
-						"type": "string",
+						"name": "items",
+						"type": "Array<item>",
 						"isOptional": false,
-						"docs": "The unique persistent account GUID."
-					},
+						"docs": "The endpoint returns an array of objects, each representing a material that can be stored in the vault. Every material will be returned, even if they have a count of 0.",
+						"subType": {
+							"name": "item",
+							"apiDataVariables": [
+								{
+									"name": "id",
+									"type": "number",
+									"isOptional": false,
+									"docs": "The item ID of the material."
+								},
+								{
+									"name": "category",
+									"type": "number",
+									"isOptional": false,
+									"docs": "The material category the item belongs to. Can be resolved against /v2/materials."
+								},
+								{
+									"name": "binding",
+									"type": "string",
+									"isOptional": true,
+									"docs": "The binding of the material. Either Account or omitted."
+								},
+								{
+									"name": "count",
+									"type": "number",
+									"isOptional": false,
+									"docs": "The number of the material that is stored in the account vault."
+								}
+							]
+						}
+					}
+				]
+			}
+		},
+		{
+			"targets": [
+				{
+					"templates": ["nodeBase"],
+					"destination": "./root/account/minis/minis.ts"
+				},
+				{
+					"templates": ["nodeTest"],
+					"destination": "./root/account/minis/minis.test.ts"
+				}
+			],
+			"variables": {
+				"apiNodeName": "minis",
+				"docs": "This resource returns information about miniatures that are unlocked for an account.",
+				"isAuthenticated": true,
+				"isLocalized": false,
+				"isDisabled": false,
+				"isChild": true,
+				"parentNode": "account",
+				"isParent": false,
+				"isList": false,
+				"isElement": false,
+				"hasData": true,
+				"apiDataVariables": [
 					{
-						"name": "age",
-						"type": "number",
+						"name": "minis",
+						"type": "Array<number>",
 						"isOptional": false,
-						"docs": "The age of the account in seconds."
-					},
+						"docs": "This request will return an array of IDs that can be resolved against /v2/minis."
+					}
+				]
+			}
+		},
+		{
+			"targets": [
+				{
+					"templates": ["nodeBase"],
+					"destination": "./root/account/outfits/outfits.ts"
+				},
+				{
+					"templates": ["nodeTest"],
+					"destination": "./root/account/outfits/outfits.test.ts"
+				}
+			],
+			"variables": {
+				"apiNodeName": "outfits",
+				"docs": "This resource returns information about outfits that are unlocked for an account.",
+				"isAuthenticated": true,
+				"isLocalized": false,
+				"isDisabled": false,
+				"isChild": true,
+				"parentNode": "account",
+				"isParent": false,
+				"isList": false,
+				"isElement": false,
+				"hasData": true,
+				"apiDataVariables": [
 					{
-						"name": "name",
-						"type": "string",
+						"name": "outfits",
+						"type": "Array<number>",
 						"isOptional": false,
-						"docs": "The unique account name with numerical suffix. It is possible that the name change. Do not rely on the name, use id instead."
-					},
+						"docs": "This request will return an array of IDs that can be resolved against /v2/outfits."
+					}
+				]
+			}
+		},
+		{
+			"targets": [
+				{
+					"templates": ["nodeBase"],
+					"destination": "./root/account/pvp/pvp.ts"
+				},
+				{
+					"templates": ["nodeTest"],
+					"destination": "./root/account/pvp/pvp.test.ts"
+				}
+			],
+			"variables": {
+				"apiNodeName": "pvp",
+				"docs": "This resource is a dummy granting access to its children.",
+				"isAuthenticated": true,
+				"isLocalized": false,
+				"isDisabled": false,
+				"isChild": true,
+				"parentNode": "account",
+				"isParent": true,
+				"childNodes": ["heroes"],
+				"isList": false,
+				"isElement": false,
+				"hasData": false
+			}
+		},
+		{
+			"targets": [
+				{
+					"templates": ["nodeBase"],
+					"destination": "./root/account/pvp/heroes/heroes.ts"
+				},
+				{
+					"templates": ["nodeTest"],
+					"destination": "./root/account/pvp/heroes/heroes.test.ts"
+				}
+			],
+			"variables": {
+				"apiNodeName": "heroes",
+				"docs": "This resource returns information about pvp heroes that are unlocked for an account.",
+				"isAuthenticated": true,
+				"isLocalized": false,
+				"isDisabled": false,
+				"isChild": true,
+				"parentNode": "pvp",
+				"isParent": false,
+				"isList": false,
+				"isElement": false,
+				"hasData": true,
+				"apiDataVariables": [
 					{
-						"name": "world",
-						"type": "number",
+						"name": "heroes",
+						"type": "Array<number>",
 						"isOptional": false,
-						"docs": "The id of the home world the account is assigned to. Can be resolved against /v2/worlds."
-					},
+						"docs": "This request will return an array of IDs that can be resolved against /v2/pvp/heroes."
+					}
+				]
+			}
+		},
+		{
+			"targets": [
+				{
+					"templates": ["nodeBase"],
+					"destination": "./root/account/raids/raids.ts"
+				},
+				{
+					"templates": ["nodeTest"],
+					"destination": "./root/account/raids/raids.test.ts"
+				}
+			],
+			"variables": {
+				"apiNodeName": "raids",
+				"docs": "This resource returns the raids completed since weekly raid reset.",
+				"isAuthenticated": true,
+				"isLocalized": false,
+				"isDisabled": false,
+				"isChild": true,
+				"parentNode": "account",
+				"isParent": false,
+				"isList": false,
+				"isElement": false,
+				"hasData": true,
+				"apiDataVariables": [
 					{
-						"name": "guilds",
+						"name": "raids",
 						"type": "Array<string>",
 						"isOptional": false,
-						"docs": "A list of guild ids assigned to the given account."
-					},
+						"docs": "The endpoints returns an array, each value being the ID of a raid encounter that can be resolved against /v2/raids. Note that this ID indicates an encounter and not the raid wing itself."
+					}
+				]
+			}
+		},
+		{
+			"targets": [
+				{
+					"templates": ["nodeBase"],
+					"destination": "./root/account/recipes/recipes.ts"
+				},
+				{
+					"templates": ["nodeTest"],
+					"destination": "./root/account/recipes/recipes.test.ts"
+				}
+			],
+			"variables": {
+				"apiNodeName": "recipes",
+				"docs": "This resource returns information about recipes that are unlocked for an account.",
+				"isAuthenticated": true,
+				"isLocalized": false,
+				"isDisabled": false,
+				"isChild": true,
+				"parentNode": "account",
+				"isParent": false,
+				"isList": false,
+				"isElement": false,
+				"hasData": true,
+				"apiDataVariables": [
 					{
-						"name": "guild_leader",
-						"type": "Array<string>",
+						"name": "recipes",
+						"type": "Array<number>",
 						"isOptional": false,
-						"docs": "A list of guild ids the account is leader of. overlaps with guilds"
-					},
+						"docs": "This request will return an array of IDs that can be resolved against /v2/recipes."
+					}
+				]
+			}
+		},
+		{
+			"targets": [
+				{
+					"templates": ["nodeBase"],
+					"destination": "./root/account/skins/skins.ts"
+				},
+				{
+					"templates": ["nodeTest"],
+					"destination": "./root/account/skins/skins.test.ts"
+				}
+			],
+			"variables": {
+				"apiNodeName": "skins",
+				"docs": "This resource returns information about skins that are unlocked for an account.",
+				"isAuthenticated": true,
+				"isLocalized": false,
+				"isDisabled": false,
+				"isChild": true,
+				"parentNode": "account",
+				"isParent": false,
+				"isList": false,
+				"isElement": false,
+				"hasData": true,
+				"apiDataVariables": [
 					{
-						"name": "created",
-						"type": "string",
+						"name": "skins",
+						"type": "Array<number>",
 						"isOptional": false,
-						"docs": "An ISO-8601 standard timestamp of when the account was created."
-					},
+						"docs": "This request will return an array of IDs that can be resolved against /v2/skins."
+					}
+				]
+			}
+		},
+		{
+			"targets": [
+				{
+					"templates": ["nodeBase"],
+					"destination": "./root/account/titles/titles.ts"
+				},
+				{
+					"templates": ["nodeTest"],
+					"destination": "./root/account/titles/titles.test.ts"
+				}
+			],
+			"variables": {
+				"apiNodeName": "titles",
+				"docs": "This resource returns information about titles that are unlocked for an account.",
+				"isAuthenticated": true,
+				"isLocalized": false,
+				"isDisabled": false,
+				"isChild": true,
+				"parentNode": "account",
+				"isParent": false,
+				"isList": false,
+				"isElement": false,
+				"hasData": true,
+				"apiDataVariables": [
 					{
-						"name": "access",
-						"type": "Array<string>",
+						"name": "titles",
+						"type": "Array<number>",
 						"isOptional": false,
-						"docs": "A list of what content this account has access to. Possible values: None-should probably never happen, PlayForFree-has not yet purchased the game, GuildWars2-has purchased the base game, HeartOfThorns-has purchased Heart of Thorns, PathOfFire-has purchased Path of Fire",
-						"enum": [
-							"None",
-							"PlayForFree",
-							"GuildWars2",
-							"HeartOfThorns",
-							"PathOfFire"
-						]
-					},
+						"docs": "This request will return an array of IDs that can be resolved against /v2/titles."
+					}
+				]
+			}
+		},
+		{
+			"targets": [
+				{
+					"templates": ["nodeBase"],
+					"destination": "./root/account/currencies/currencies.ts"
+				},
+				{
+					"templates": ["nodeTest"],
+					"destination": "./root/account/currencies/currencies.test.ts"
+				}
+			],
+			"variables": {
+				"apiNodeName": "currencies",
+				"docs": "This resource returns the currencies of the account.",
+				"isAuthenticated": true,
+				"isLocalized": false,
+				"isDisabled": false,
+				"isChild": true,
+				"parentNode": "account",
+				"isParent": false,
+				"isList": false,
+				"isElement": false,
+				"hasData": true,
+				"apiDataVariables": [
 					{
-						"name": "commander",
-						"type": "BOOLEAN",
+						"name": "currencies",
+						"type": "Array<currency>",
 						"isOptional": false,
-						"docs": "True if the player has bought a commander tag."
-					},
-					{
-						"name": "fractal_level",
-						"type": "number",
-						"isOptional": false,
-						"docs": "The account's personal fractal reward level. Requires the additional progression scope."
-					},
-					{
-						"name": "daily_ap",
-						"type": "number",
-						"isOptional": false,
-						"docs": "The daily AP the account has. Requires the additional progression scope."
-					},
-					{
-						"name": "monthly_ap",
-						"type": "number",
-						"isOptional": false,
-						"docs": "The monthly AP the account has. Requires the additional progression scope."
-					},
-					{
-						"name": "wvw_rank",
-						"type": "number",
-						"isOptional": false,
-						"docs": "The account's personal wvw rank. Requires the additional progression scope."
+						"docs": "The endpoint returns an array of objects, each representing a currency.",
+						"subType": {
+							"name": "currency",
+							"apiDataVariables": [
+								{
+									"name": "id",
+									"type": "number",
+									"isOptional": false,
+									"docs": "The currency's ID that can be resolved against /v2/currencies."
+								},
+								{
+									"name": "value",
+									"type": "number",
+									"isOptional": false,
+									"docs": "The amount of this currency."
+								}
+							]
+						}
 					}
 				]
 			}
