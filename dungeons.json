@@ -18,6 +18,7 @@
 				"isAuthenticated": false,
 				"isLocalized": false,
 				"isDisabled": false,
+				"isVariablePath": false,
 				"isChild": true,
 				"parentNode": "root",
 				"isParent": false,

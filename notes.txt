@@ -2,6 +2,7 @@ I need a node interface that every node implements
 I need a parent interface and child interface seperate from that
 I need a list and element interface seperate from that
 I need a data interface for all nodes that return data (i.e. not dummy endpoints)
+I need a avariable path interface for all nodes that have a variable path. I will be skipping these till the other templates are complete.
 
 each node interface needs
 	Variables:
