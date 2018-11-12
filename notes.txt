@@ -58,5 +58,6 @@ Currently skipping:
 	guild,
 	commerce/transactions,
 	continents,
+	emblem,
 	pvp,
 	wvw
