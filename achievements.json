@@ -30,7 +30,7 @@
 				"apiDataVariables": [
 					{
 						"name": "ids",
-						"type": "Array<achievement>",
+						"type": "Array<number>",
 						"isOptional": false,
 						"docs": "A full list of achievement ids."
 					}
@@ -260,7 +260,7 @@
 				"apiDataVariables": [
 					{
 						"name": "ids",
-						"type": "Array<category>",
+						"type": "Array<number>",
 						"isOptional": false,
 						"docs": "A full list of category ids."
 					}
@@ -536,7 +536,7 @@
 				"apiDataVariables": [
 					{
 						"name": "ids",
-						"type": "Array<group>",
+						"type": "Array<number>",
 						"isOptional": false,
 						"docs": "A full list of group ids."
 					}
