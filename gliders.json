@@ -5,16 +5,16 @@
 			"targets": [
 				{
 					"templates": ["nodeBase"],
-					"destination": "./root/finishers/finishers.ts"
+					"destination": "./root/gliders/gliders.ts"
 				},
 				{
 					"templates": ["nodeTest"],
-					"destination": "./root/finishers/finishers.test.ts"
+					"destination": "./root/gliders/gliders.test.ts"
 				}
 			],
 			"variables": {
-				"apiNodeName": "finishers",
-				"docs": "This resource returns information about finishers that are available in-game.",
+				"apiNodeName": "gliders",
+				"docs": "This resource returns information about gliders that are available in-game.",
 				"isAuthenticated": false,
 				"isLocalized": false,
 				"isDisabled": false,
@@ -24,7 +24,7 @@
 				"isParent": false,
 				"isList": true,
 				"getAllAvailable": true,
-				"elementName": "finisher",
+				"elementName": "glider",
 				"isElement": false,
 				"hasData": true,
 				"apiDataVariables": [
@@ -32,7 +32,7 @@
 						"name": "ids",
 						"type": "Array<number>",
 						"isOptional": false,
-						"docs": "This endpoints returns an array of finisher ids."
+						"docs": "This endpoints returns an array of glider ids."
 					}
 				],
 				"apiElementVariables": [
@@ -40,37 +40,43 @@
 						"name": "id",
 						"type": "number",
 						"isOptional": false,
-						"docs": "The id of the finisher."
-					},
-					{
-						"name": "unlock_details",
-						"type": "string",
-						"isOptional": false,
-						"docs": "A description explaining how to acquire the finisher."
+						"docs": "The id of the glider."
 					},
 					{
 						"name": "unlock_items",
 						"type": "Array<number>",
 						"isOptional": false,
-						"docs": "An array of item ids used to unlock the finisher. Can be resolved against v2/items."
+						"docs": "An array of item ids used to unlock the glider. Can be resolved against v2/items."
 					},
 					{
 						"name": "order",
 						"type": "number",
 						"isOptional": false,
-						"docs": "The order in which the finisher appears in a list."
+						"docs": "The order in which the glider appears in a list."
 					},
 					{
 						"name": "icon",
 						"type": "string",
 						"isOptional": false,
-						"docs": "The icon url for the finisher."
+						"docs": "The icon url for the glider."
 					},
 					{
 						"name": "name",
 						"type": "string",
 						"isOptional": false,
-						"docs": "The name of the finisher as it appears in-game."
+						"docs": "The name of the glider as it appears in-game."
+					},
+					{
+						"name": "description",
+						"type": "string",
+						"isOptional": false,
+						"docs": "The description of the glider as it appears in-game."
+					},
+					{
+						"name": "default_dyes",
+						"type": "Array<number>",
+						"isOptional": false,
+						"docs": "List of dye ids . Can be resolved against v2/colors."
 					}
 				]
 			}
