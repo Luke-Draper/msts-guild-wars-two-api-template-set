@@ -57,5 +57,6 @@ Currently skipping:
 	characters,
 	guild,
 	commerce/transactions,
+	continents,
 	pvp,
 	wvw
