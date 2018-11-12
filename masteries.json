@@ -16,7 +16,7 @@
 				"apiNodeName": "masteries",
 				"docs": "This resource returns information about masteries that are available in-game.",
 				"isAuthenticated": false,
-				"isLocalized": false,
+				"isLocalized": true,
 				"isDisabled": false,
 				"isVariablePath": false,
 				"isChild": true,
