@@ -53,4 +53,9 @@ each data interface needs
 
 
 
-Currently skipping characters and guild endpoints due to large amount of complexity that I do not have access to
+Currently skipping:
+	characters,
+	guild,
+	commerce/transactions,
+	pvp,
+	wvw
