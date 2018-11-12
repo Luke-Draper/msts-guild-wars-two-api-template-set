@@ -164,53 +164,55 @@
 						"type": "Array<achievement>",
 						"isOptional": false,
 						"docs": "The full list of current achievement objects",
-						"subType": {
-							"name": "achievement",
-							"apiDataVariables": [
-								{
-									"name": "id",
-									"type": "number",
-									"isOptional": false,
-									"docs": "The achievement id."
-								},
-								{
-									"name": "bits",
-									"type": "Array<number>",
-									"isOptional": true,
-									"docs": "This attribute contains an array of numbers, giving more specific information on the progress for the achievement. The meaning of each value varies with each achievement."
-								},
-								{
-									"name": "current",
-									"type": "number",
-									"isOptional": true,
-									"docs": "The player's current progress towards the achievement."
-								},
-								{
-									"name": "max",
-									"type": "number",
-									"isOptional": true,
-									"docs": "The amount needed to complete the achievement."
-								},
-								{
-									"name": "done",
-									"type": "boolean",
-									"isOptional": false,
-									"docs": "Whether or not the achievement is done."
-								},
-								{
-									"name": "repeated",
-									"type": "number",
-									"isOptional": true,
-									"docs": "The number of times the achievement has been completed if the achievement is repeatable."
-								},
-								{
-									"name": "unlocked",
-									"type": "boolean",
-									"isOptional": true,
-									"docs": "Whether or not the achievement is unlocked. Note that if this property does not exist, the achievement is unlocked as well."
-								}
-							]
-						}
+						"subTypes": [
+							{
+								"name": "achievement",
+								"apiDataVariables": [
+									{
+										"name": "id",
+										"type": "number",
+										"isOptional": false,
+										"docs": "The achievement id."
+									},
+									{
+										"name": "bits",
+										"type": "Array<number>",
+										"isOptional": true,
+										"docs": "This attribute contains an array of numbers, giving more specific information on the progress for the achievement. The meaning of each value varies with each achievement."
+									},
+									{
+										"name": "current",
+										"type": "number",
+										"isOptional": true,
+										"docs": "The player's current progress towards the achievement."
+									},
+									{
+										"name": "max",
+										"type": "number",
+										"isOptional": true,
+										"docs": "The amount needed to complete the achievement."
+									},
+									{
+										"name": "done",
+										"type": "boolean",
+										"isOptional": false,
+										"docs": "Whether or not the achievement is done."
+									},
+									{
+										"name": "repeated",
+										"type": "number",
+										"isOptional": true,
+										"docs": "The number of times the achievement has been completed if the achievement is repeatable."
+									},
+									{
+										"name": "unlocked",
+										"type": "boolean",
+										"isOptional": true,
+										"docs": "Whether or not the achievement is unlocked. Note that if this property does not exist, the achievement is unlocked as well."
+									}
+								]
+							}
+						]
 					}
 				]
 			}
@@ -244,59 +246,61 @@
 						"type": "Array<item>",
 						"isOptional": false,
 						"docs": "The endpoint returns an array of objects, each representing an item slot in the vault. If a slot is empty, it will return null. The amount of slots/bank tabs is implied by the length of the array.",
-						"subType": {
-							"name": "item",
-							"apiDataVariables": [
-								{
-									"name": "id",
-									"type": "number",
-									"isOptional": false,
-									"docs": "The item id."
-								},
-								{
-									"name": "count",
-									"type": "number",
-									"isOptional": false,
-									"docs": "The amount of items in the item stack."
-								},
-								{
-									"name": "charges",
-									"type": "number",
-									"isOptional": true,
-									"docs": "The amount of charges remaining on the item."
-								},
-								{
-									"name": "skin",
-									"type": "number",
-									"isOptional": true,
-									"docs": "The skin applied to the item, if it is different from its original. Can be resolved against /v2/skins."
-								},
-								{
-									"name": "upgrades",
-									"type": "Array<number>",
-									"isOptional": true,
-									"docs": "An array of item IDs for each rune or signet applied to the item."
-								},
-								{
-									"name": "infusions",
-									"type": "Array<number>",
-									"isOptional": true,
-									"docs": "An array of item IDs for each infusion applied to the item."
-								},
-								{
-									"name": "binding",
-									"type": "string",
-									"isOptional": true,
-									"docs": "The current binding of the item. Either Account or Character if present."
-								},
-								{
-									"name": "bound_to",
-									"type": "string",
-									"isOptional": true,
-									"docs": "If binding is Character, this field tells which character it is bound to."
-								}
-							]
-						}
+						"subTypes": [
+							{
+								"name": "item",
+								"apiDataVariables": [
+									{
+										"name": "id",
+										"type": "number",
+										"isOptional": false,
+										"docs": "The item id."
+									},
+									{
+										"name": "count",
+										"type": "number",
+										"isOptional": false,
+										"docs": "The amount of items in the item stack."
+									},
+									{
+										"name": "charges",
+										"type": "number",
+										"isOptional": true,
+										"docs": "The amount of charges remaining on the item."
+									},
+									{
+										"name": "skin",
+										"type": "number",
+										"isOptional": true,
+										"docs": "The skin applied to the item, if it is different from its original. Can be resolved against /v2/skins."
+									},
+									{
+										"name": "upgrades",
+										"type": "Array<number>",
+										"isOptional": true,
+										"docs": "An array of item IDs for each rune or signet applied to the item."
+									},
+									{
+										"name": "infusions",
+										"type": "Array<number>",
+										"isOptional": true,
+										"docs": "An array of item IDs for each infusion applied to the item."
+									},
+									{
+										"name": "binding",
+										"type": "string",
+										"isOptional": true,
+										"docs": "The current binding of the item. Either Account or Character if present."
+									},
+									{
+										"name": "bound_to",
+										"type": "string",
+										"isOptional": true,
+										"docs": "If binding is Character, this field tells which character it is bound to."
+									}
+								]
+							}
+						]
 					}
 				]
 			}
@@ -396,29 +400,31 @@
 						"type": "Array<finisher>",
 						"isOptional": false,
 						"docs": "This request will return an array of objects with the following properties.",
-						"subType": {
-							"name": "finisher",
-							"apiDataVariables": [
-								{
-									"name": "id",
-									"type": "number",
-									"isOptional": false,
-									"docs": "The id of the finisher resolvable against /v2/finishers."
-								},
-								{
-									"name": "permanent",
-									"type": "boolean",
-									"isOptional": false,
-									"docs": "Indicates if the finisher is permanent or temporary."
-								},
-								{
-									"name": "quantity",
-									"type": "number",
-									"isOptional": true,
-									"docs": "If permanent is false, this field will indicate the number of uses the finisher has remaining."
-								}
-							]
-						}
+						"subTypes": [
+							{
+								"name": "finisher",
+								"apiDataVariables": [
+									{
+										"name": "id",
+										"type": "number",
+										"isOptional": false,
+										"docs": "The id of the finisher resolvable against /v2/finishers."
+									},
+									{
+										"name": "permanent",
+										"type": "boolean",
+										"isOptional": false,
+										"docs": "Indicates if the finisher is permanent or temporary."
+									},
+									{
+										"name": "quantity",
+										"type": "number",
+										"isOptional": true,
+										"docs": "If permanent is false, this field will indicate the number of uses the finisher has remaining."
+									}
+								]
+							}
+						]
 					}
 				]
 			}
@@ -511,23 +517,25 @@
 						"type": "Array<cat>",
 						"isOptional": false,
 						"docs": "This request will return an array of objects with the following properties.",
-						"subType": {
-							"name": "cat",
-							"apiDataVariables": [
-								{
-									"name": "id",
-									"type": "number",
-									"isOptional": false,
-									"docs": "The id for the cat that can be resolved against /v2/cats."
-								},
-								{
-									"name": "hint",
-									"type": "string",
-									"isOptional": true,
-									"docs": "A hint to identify what is needed for each cat."
-								}
-							]
-						}
+						"subTypes": [
+							{
+								"name": "cat",
+								"apiDataVariables": [
+									{
+										"name": "id",
+										"type": "number",
+										"isOptional": false,
+										"docs": "The id for the cat that can be resolved against /v2/cats."
+									},
+									{
+										"name": "hint",
+										"type": "string",
+										"isOptional": true,
+										"docs": "A hint to identify what is needed for each cat."
+									}
+								]
+							}
+						]
 					}
 				]
 			}
@@ -594,53 +602,55 @@
 						"type": "Array<item>",
 						"isOptional": false,
 						"docs": "The endpoint returns an array of objects, each representing an item slot in the shared inventory. If a slot is empty, it will return null. The amount of slots is implied by the length of the array.",
-						"subType": {
-							"name": "item",
-							"apiDataVariables": [
-								{
-									"name": "id",
-									"type": "number",
-									"isOptional": false,
-									"docs": "The item id."
-								},
-								{
-									"name": "count",
-									"type": "number",
-									"isOptional": false,
-									"docs": "The amount of items in the item stack."
-								},
-								{
-									"name": "charges",
-									"type": "number",
-									"isOptional": true,
-									"docs": "The amount of charges remaining on the item."
-								},
-								{
-									"name": "skin",
-									"type": "number",
-									"isOptional": true,
-									"docs": "The skin applied to the item, if it is different from its original. Can be resolved against /v2/skins."
-								},
-								{
-									"name": "upgrades",
-									"type": "Array<number>",
-									"isOptional": true,
-									"docs": "An array of item IDs for each rune or signet applied to the item."
-								},
-								{
-									"name": "infusions",
-									"type": "Array<number>",
-									"isOptional": true,
-									"docs": "An array of item IDs for each infusion applied to the item."
-								},
-								{
-									"name": "binding",
-									"type": "string",
-									"isOptional": true,
-									"docs": "The current binding of the item. If present, the only possible value is Account."
-								}
-							]
-						}
+						"subTypes": [
+							{
+								"name": "item",
+								"apiDataVariables": [
+									{
+										"name": "id",
+										"type": "number",
+										"isOptional": false,
+										"docs": "The item id."
+									},
+									{
+										"name": "count",
+										"type": "number",
+										"isOptional": false,
+										"docs": "The amount of items in the item stack."
+									},
+									{
+										"name": "charges",
+										"type": "number",
+										"isOptional": true,
+										"docs": "The amount of charges remaining on the item."
+									},
+									{
+										"name": "skin",
+										"type": "number",
+										"isOptional": true,
+										"docs": "The skin applied to the item, if it is different from its original. Can be resolved against /v2/skins."
+									},
+									{
+										"name": "upgrades",
+										"type": "Array<number>",
+										"isOptional": true,
+										"docs": "An array of item IDs for each rune or signet applied to the item."
+									},
+									{
+										"name": "infusions",
+										"type": "Array<number>",
+										"isOptional": true,
+										"docs": "An array of item IDs for each infusion applied to the item."
+									},
+									{
+										"name": "binding",
+										"type": "string",
+										"isOptional": true,
+										"docs": "The current binding of the item. If present, the only possible value is Account."
+									}
+								]
+							}
+						]
 					}
 				]
 			}
@@ -707,23 +717,25 @@
 						"type": "Array<mastery>",
 						"isOptional": false,
 						"docs": "This request will return an array of objects with the following properties.",
-						"subType": {
-							"name": "mastery",
-							"apiDataVariables": [
-								{
-									"name": "id",
-									"type": "number",
-									"isOptional": false,
-									"docs": "The id of the mastery resolvable against /v2/masteries."
-								},
-								{
-									"name": "level",
-									"type": "number",
-									"isOptional": true,
-									"docs": "Indicates the level at which the mastery is on the account. Is a 0-indexed reference to the /v2/masteries.levels array indicating the maximum level unlocked by the user. If omitted, this mastery hasn't been started."
-								}
-							]
-						}
+						"subTypes": [
+							{
+								"name": "mastery",
+								"apiDataVariables": [
+									{
+										"name": "id",
+										"type": "number",
+										"isOptional": false,
+										"docs": "The id of the mastery resolvable against /v2/masteries."
+									},
+									{
+										"name": "level",
+										"type": "number",
+										"isOptional": true,
+										"docs": "Indicates the level at which the mastery is on the account. Is a 0-indexed reference to the /v2/masteries.levels array indicating the maximum level unlocked by the user. If omitted, this mastery hasn't been started."
+									}
+								]
+							}
+						]
 					}
 				]
 			}
@@ -783,29 +795,31 @@
 						"type": "Array<total>",
 						"isOptional": false,
 						"docs": "This request will return an array of objects with the following properties.",
-						"subType": {
-							"name": "total",
-							"apiDataVariables": [
-								{
-									"name": "region",
-									"type": "string",
-									"isOptional": false,
-									"docs": "The mastery region. Current possible options: Tyria, Maguuma, Desert."
-								},
-								{
-									"name": "spent",
-									"type": "number",
-									"isOptional": false,
-									"docs": "Amount of masteries of this region spent in mastery tracks."
-								},
-								{
-									"name": "earned",
-									"type": "number",
-									"isOptional": false,
-									"docs": "Amount of masteries of this region earned for the account."
-								}
-							]
-						}
+						"subTypes": [
+							{
+								"name": "total",
+								"apiDataVariables": [
+									{
+										"name": "region",
+										"type": "string",
+										"isOptional": false,
+										"docs": "The mastery region. Current possible options: Tyria, Maguuma, Desert."
+									},
+									{
+										"name": "spent",
+										"type": "number",
+										"isOptional": false,
+										"docs": "Amount of masteries of this region spent in mastery tracks."
+									},
+									{
+										"name": "earned",
+										"type": "number",
+										"isOptional": false,
+										"docs": "Amount of masteries of this region earned for the account."
+									}
+								]
+							}
+						]
 					},
 					{
 						"name": "unlocked",
@@ -845,35 +859,37 @@
 						"type": "Array<item>",
 						"isOptional": false,
 						"docs": "The endpoint returns an array of objects, each representing a material that can be stored in the vault. Every material will be returned, even if they have a count of 0.",
-						"subType": {
-							"name": "item",
-							"apiDataVariables": [
-								{
-									"name": "id",
-									"type": "number",
-									"isOptional": false,
-									"docs": "The item ID of the material."
-								},
-								{
-									"name": "category",
-									"type": "number",
-									"isOptional": false,
-									"docs": "The material category the item belongs to. Can be resolved against /v2/materials."
-								},
-								{
-									"name": "binding",
-									"type": "string",
-									"isOptional": true,
-									"docs": "The binding of the material. Either Account or omitted."
-								},
-								{
-									"name": "count",
-									"type": "number",
-									"isOptional": false,
-									"docs": "The number of the material that is stored in the account vault."
-								}
-							]
-						}
+						"subTypes": [
+							{
+								"name": "item",
+								"apiDataVariables": [
+									{
+										"name": "id",
+										"type": "number",
+										"isOptional": false,
+										"docs": "The item ID of the material."
+									},
+									{
+										"name": "category",
+										"type": "number",
+										"isOptional": false,
+										"docs": "The material category the item belongs to. Can be resolved against /v2/materials."
+									},
+									{
+										"name": "binding",
+										"type": "string",
+										"isOptional": true,
+										"docs": "The binding of the material. Either Account or omitted."
+									},
+									{
+										"name": "count",
+										"type": "number",
+										"isOptional": false,
+										"docs": "The number of the material that is stored in the account vault."
+									}
+								]
+							}
+						]
 					}
 				]
 			}
@@ -1164,23 +1180,25 @@
 						"type": "Array<currency>",
 						"isOptional": false,
 						"docs": "The endpoint returns an array of objects, each representing a currency.",
-						"subType": {
-							"name": "currency",
-							"apiDataVariables": [
-								{
-									"name": "id",
-									"type": "number",
-									"isOptional": false,
-									"docs": "The currency's ID that can be resolved against /v2/currencies."
-								},
-								{
-									"name": "value",
-									"type": "number",
-									"isOptional": false,
-									"docs": "The amount of this currency."
-								}
-							]
-						}
+						"subTypes": [
+							{
+								"name": "currency",
+								"apiDataVariables": [
+									{
+										"name": "id",
+										"type": "number",
+										"isOptional": false,
+										"docs": "The currency's ID that can be resolved against /v2/currencies."
+									},
+									{
+										"name": "value",
+										"type": "number",
+										"isOptional": false,
+										"docs": "The amount of this currency."
+									}
+								]
+							}
+						]
 					}
 				]
 			}
