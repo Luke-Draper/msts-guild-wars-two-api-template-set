@@ -49,3 +49,8 @@ each data interface needs
 		data: dataType;
 	Methods:
 		setupData -=- creates the dataType object from raw and sets it to data
+
+
+
+
+Currently skipping characters and guild endpoints due to large amount of complexity that I do not have access to
