@@ -13,7 +13,7 @@
 				}
 			],
 			"variables": {
-				"apiNodeName": "https://api.guildwars2.com/v2",
+				"apiNodeName": "root",
 				"docs": "This is the root node of the GW2 API V2",
 				"isAuthenticated": false,
 				"isLocalized": false,

@@ -62,4 +62,12 @@ Currently skipping:
 	emblem,
 	pvp,
 	wvw,
-	professions
+	professions,
+	skills,
+	skins,
+	specializations,
+	stories,
+	titles,
+	tokeninfo,
+	traits,
+	worlds
